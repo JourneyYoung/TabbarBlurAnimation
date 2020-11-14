@@ -1,0 +1,26 @@
+PODS:
+  - lottie-ios (2.5.3)
+  - Masonry (1.1.0)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
+
+DEPENDENCIES:
+  - lottie-ios (~> 2.5.2)
+  - Masonry
+  - YYImage
+
+SPEC REPOS:
+  trunk:
+    - lottie-ios
+    - Masonry
+    - YYImage
+
+SPEC CHECKSUMS:
+  lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
+
+PODFILE CHECKSUM: 60951944b097eb1bc95b1b1e4226aa462504704b
+
+COCOAPODS: 1.9.0
