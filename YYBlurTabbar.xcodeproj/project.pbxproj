@@ -1,0 +1,459 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		80AE530E118A4031B7E0F61E /* libPods-YYBlurTabbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEEF30F1B3B943980B59CD32 /* libPods-YYBlurTabbar.a */; };
+		B5DF81522561025400A4248A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DF81512561025400A4248A /* AppDelegate.m */; };
+		B5DF815D2561025700A4248A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5DF815C2561025700A4248A /* Assets.xcassets */; };
+		B5DF81602561025700A4248A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5DF815E2561025700A4248A /* LaunchScreen.storyboard */; };
+		B5DF81632561025700A4248A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DF81622561025700A4248A /* main.m */; };
+		B5DF81772561030F00A4248A /* FTTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DF81732561030F00A4248A /* FTTabBarItem.m */; };
+		B5DF81782561030F00A4248A /* FTTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DF81762561030F00A4248A /* FTTabBar.m */; };
+		B5DF817C2561031B00A4248A /* FTBaseTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DF817B2561031B00A4248A /* FTBaseTabBarViewController.m */; };
+		B5DF81872561032900A4248A /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DF817F2561032900A4248A /* AViewController.m */; };
+		B5DF81882561032900A4248A /* BViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DF81832561032900A4248A /* BViewController.m */; };
+		B5DF81892561032900A4248A /* DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DF81842561032900A4248A /* DViewController.m */; };
+		B5DF818A2561032900A4248A /* CViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DF81852561032900A4248A /* CViewController.m */; };
+		B5DF81912561039000A4248A /* learn_96.png in Resources */ = {isa = PBXBuildFile; fileRef = B5DF818D2561039000A4248A /* learn_96.png */; };
+		B5DF81922561039000A4248A /* coach_96.png in Resources */ = {isa = PBXBuildFile; fileRef = B5DF818E2561039000A4248A /* coach_96.png */; };
+		B5DF81932561039000A4248A /* track_96.png in Resources */ = {isa = PBXBuildFile; fileRef = B5DF818F2561039000A4248A /* track_96.png */; };
+		B5DF81942561039000A4248A /* fasting_96.png in Resources */ = {isa = PBXBuildFile; fileRef = B5DF81902561039000A4248A /* fasting_96.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5CCA1CE276879902A034348F /* Pods-YYBlurTabbar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYBlurTabbar.release.xcconfig"; path = "Target Support Files/Pods-YYBlurTabbar/Pods-YYBlurTabbar.release.xcconfig"; sourceTree = "<group>"; };
+		B5DF814D2561025400A4248A /* YYBlurTabbar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYBlurTabbar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5DF81502561025400A4248A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B5DF81512561025400A4248A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B5DF815C2561025700A4248A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B5DF815F2561025700A4248A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B5DF81612561025700A4248A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5DF81622561025700A4248A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B5DF81732561030F00A4248A /* FTTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTTabBarItem.m; sourceTree = "<group>"; };
+		B5DF81742561030F00A4248A /* FTTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTTabBar.h; sourceTree = "<group>"; };
+		B5DF81752561030F00A4248A /* FTTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTTabBarItem.h; sourceTree = "<group>"; };
+		B5DF81762561030F00A4248A /* FTTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTTabBar.m; sourceTree = "<group>"; };
+		B5DF817A2561031B00A4248A /* FTBaseTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTBaseTabBarViewController.h; sourceTree = "<group>"; };
+		B5DF817B2561031B00A4248A /* FTBaseTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTBaseTabBarViewController.m; sourceTree = "<group>"; };
+		B5DF817F2561032900A4248A /* AViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AViewController.m; sourceTree = "<group>"; };
+		B5DF81802561032900A4248A /* CViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CViewController.h; sourceTree = "<group>"; };
+		B5DF81812561032900A4248A /* DViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DViewController.h; sourceTree = "<group>"; };
+		B5DF81822561032900A4248A /* AViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AViewController.h; sourceTree = "<group>"; };
+		B5DF81832561032900A4248A /* BViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BViewController.m; sourceTree = "<group>"; };
+		B5DF81842561032900A4248A /* DViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DViewController.m; sourceTree = "<group>"; };
+		B5DF81852561032900A4248A /* CViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CViewController.m; sourceTree = "<group>"; };
+		B5DF81862561032900A4248A /* BViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BViewController.h; sourceTree = "<group>"; };
+		B5DF818D2561039000A4248A /* learn_96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = learn_96.png; sourceTree = "<group>"; };
+		B5DF818E2561039000A4248A /* coach_96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coach_96.png; sourceTree = "<group>"; };
+		B5DF818F2561039000A4248A /* track_96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track_96.png; sourceTree = "<group>"; };
+		B5DF81902561039000A4248A /* fasting_96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fasting_96.png; sourceTree = "<group>"; };
+		DCE6813E0E4EBA99842C419D /* Pods-YYBlurTabbar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYBlurTabbar.debug.xcconfig"; path = "Target Support Files/Pods-YYBlurTabbar/Pods-YYBlurTabbar.debug.xcconfig"; sourceTree = "<group>"; };
+		FEEF30F1B3B943980B59CD32 /* libPods-YYBlurTabbar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YYBlurTabbar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B5DF814A2561025400A4248A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80AE530E118A4031B7E0F61E /* libPods-YYBlurTabbar.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7C6AE980173B242F21D0454C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DCE6813E0E4EBA99842C419D /* Pods-YYBlurTabbar.debug.xcconfig */,
+				5CCA1CE276879902A034348F /* Pods-YYBlurTabbar.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B5DF81442561025400A4248A = {
+			isa = PBXGroup;
+			children = (
+				B5DF814F2561025400A4248A /* YYBlurTabbar */,
+				B5DF814E2561025400A4248A /* Products */,
+				7C6AE980173B242F21D0454C /* Pods */,
+				BB4FB0149E752EF106A57CCD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B5DF814E2561025400A4248A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B5DF814D2561025400A4248A /* YYBlurTabbar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B5DF814F2561025400A4248A /* YYBlurTabbar */ = {
+			isa = PBXGroup;
+			children = (
+				B5DF817E2561032200A4248A /* Test */,
+				B5DF816E256102BF00A4248A /* BlurTabbar */,
+				B5DF81502561025400A4248A /* AppDelegate.h */,
+				B5DF81512561025400A4248A /* AppDelegate.m */,
+				B5DF815C2561025700A4248A /* Assets.xcassets */,
+				B5DF815E2561025700A4248A /* LaunchScreen.storyboard */,
+				B5DF81612561025700A4248A /* Info.plist */,
+				B5DF81622561025700A4248A /* main.m */,
+			);
+			path = YYBlurTabbar;
+			sourceTree = "<group>";
+		};
+		B5DF816E256102BF00A4248A /* BlurTabbar */ = {
+			isa = PBXGroup;
+			children = (
+				B5DF818C2561038A00A4248A /* Images */,
+				B5DF81742561030F00A4248A /* FTTabBar.h */,
+				B5DF81762561030F00A4248A /* FTTabBar.m */,
+				B5DF81752561030F00A4248A /* FTTabBarItem.h */,
+				B5DF81732561030F00A4248A /* FTTabBarItem.m */,
+				B5DF817A2561031B00A4248A /* FTBaseTabBarViewController.h */,
+				B5DF817B2561031B00A4248A /* FTBaseTabBarViewController.m */,
+			);
+			path = BlurTabbar;
+			sourceTree = "<group>";
+		};
+		B5DF817E2561032200A4248A /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				B5DF81822561032900A4248A /* AViewController.h */,
+				B5DF817F2561032900A4248A /* AViewController.m */,
+				B5DF81862561032900A4248A /* BViewController.h */,
+				B5DF81832561032900A4248A /* BViewController.m */,
+				B5DF81802561032900A4248A /* CViewController.h */,
+				B5DF81852561032900A4248A /* CViewController.m */,
+				B5DF81812561032900A4248A /* DViewController.h */,
+				B5DF81842561032900A4248A /* DViewController.m */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		B5DF818C2561038A00A4248A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B5DF818E2561039000A4248A /* coach_96.png */,
+				B5DF81902561039000A4248A /* fasting_96.png */,
+				B5DF818D2561039000A4248A /* learn_96.png */,
+				B5DF818F2561039000A4248A /* track_96.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		BB4FB0149E752EF106A57CCD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FEEF30F1B3B943980B59CD32 /* libPods-YYBlurTabbar.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B5DF814C2561025400A4248A /* YYBlurTabbar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5DF81662561025700A4248A /* Build configuration list for PBXNativeTarget "YYBlurTabbar" */;
+			buildPhases = (
+				18347913632E50349D48AFF7 /* [CP] Check Pods Manifest.lock */,
+				B5DF81492561025400A4248A /* Sources */,
+				B5DF814A2561025400A4248A /* Frameworks */,
+				B5DF814B2561025400A4248A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YYBlurTabbar;
+			productName = YYBlurTabbar;
+			productReference = B5DF814D2561025400A4248A /* YYBlurTabbar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B5DF81452561025400A4248A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					B5DF814C2561025400A4248A = {
+						CreatedOnToolsVersion = 12.2;
+					};
+				};
+			};
+			buildConfigurationList = B5DF81482561025400A4248A /* Build configuration list for PBXProject "YYBlurTabbar" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B5DF81442561025400A4248A;
+			productRefGroup = B5DF814E2561025400A4248A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B5DF814C2561025400A4248A /* YYBlurTabbar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B5DF814B2561025400A4248A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5DF81602561025700A4248A /* LaunchScreen.storyboard in Resources */,
+				B5DF81942561039000A4248A /* fasting_96.png in Resources */,
+				B5DF81932561039000A4248A /* track_96.png in Resources */,
+				B5DF815D2561025700A4248A /* Assets.xcassets in Resources */,
+				B5DF81912561039000A4248A /* learn_96.png in Resources */,
+				B5DF81922561039000A4248A /* coach_96.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		18347913632E50349D48AFF7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YYBlurTabbar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B5DF81492561025400A4248A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5DF81882561032900A4248A /* BViewController.m in Sources */,
+				B5DF81872561032900A4248A /* AViewController.m in Sources */,
+				B5DF818A2561032900A4248A /* CViewController.m in Sources */,
+				B5DF81522561025400A4248A /* AppDelegate.m in Sources */,
+				B5DF81772561030F00A4248A /* FTTabBarItem.m in Sources */,
+				B5DF81632561025700A4248A /* main.m in Sources */,
+				B5DF817C2561031B00A4248A /* FTBaseTabBarViewController.m in Sources */,
+				B5DF81782561030F00A4248A /* FTTabBar.m in Sources */,
+				B5DF81892561032900A4248A /* DViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B5DF815E2561025700A4248A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5DF815F2561025700A4248A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B5DF81642561025700A4248A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B5DF81652561025700A4248A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B5DF81672561025700A4248A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCE6813E0E4EBA99842C419D /* Pods-YYBlurTabbar.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8RH99AW8KG;
+				INFOPLIST_FILE = YYBlurTabbar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = YY.YYBlurTabbar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B5DF81682561025700A4248A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CCA1CE276879902A034348F /* Pods-YYBlurTabbar.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8RH99AW8KG;
+				INFOPLIST_FILE = YYBlurTabbar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = YY.YYBlurTabbar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B5DF81482561025400A4248A /* Build configuration list for PBXProject "YYBlurTabbar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5DF81642561025700A4248A /* Debug */,
+				B5DF81652561025700A4248A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5DF81662561025700A4248A /* Build configuration list for PBXNativeTarget "YYBlurTabbar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5DF81672561025700A4248A /* Debug */,
+				B5DF81682561025700A4248A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B5DF81452561025400A4248A /* Project object */;
+}

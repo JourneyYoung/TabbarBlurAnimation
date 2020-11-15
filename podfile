@@ -1,7 +1,9 @@
-platform:ios,'9.0'
-target 'CustomTabBar' do
-pod 'lottie-ios', ‘~> 2.5.2‘
-pod 'Masonry'
-pod 'YYImage'
-pod 'Masonry'
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'YYBlurTabbar' do
+  pod 'Masonry'
+  pod 'YYImage'
+  pod 'Masonry'
+
 end
