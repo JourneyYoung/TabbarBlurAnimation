@@ -44,6 +44,8 @@ static NSInteger defaultTag = 100000;
 
 @property (nonatomic, assign) BOOL isAnimation;
 
+@property (nonatomic, strong) CAShapeLayer *lineLayer;
+
 @end
 
 @implementation FTTabBarItem
@@ -172,7 +174,7 @@ static NSInteger defaultTag = 100000;
         [self drawCircle];
     }else{
         self.radian = 6;
-        self.minusRadian = 6;
+        self.minusRadian = 0;
         self.selectedTimer = [NSTimer timerWithTimeInterval:0.025 target:self selector:@selector(moveToSelected) userInfo:nil repeats:YES];
 
         [[NSRunLoop mainRunLoop] addTimer:self.selectedTimer forMode:NSDefaultRunLoopMode];
@@ -252,6 +254,7 @@ static NSInteger defaultTag = 100000;
     CAShapeLayer *layer = [CAShapeLayer layer];
         layer.path = bezierPath.CGPath;
     [self.backView.layer setMask:layer];
+    [self drawUpdateLine:NO];
 }
 
 - (void)clearCircle{
@@ -278,6 +281,7 @@ static NSInteger defaultTag = 100000;
     CAShapeLayer *layer = [CAShapeLayer layer];
     layer.path = bezierPath.CGPath;
     [self.backView.layer setMask:layer];
+    [self drawPath:NO];
 }
 
 - (void)moveToSelected{
@@ -315,6 +319,7 @@ static NSInteger defaultTag = 100000;
     CAShapeLayer *layer = [CAShapeLayer layer];
         layer.path = bezierPath.CGPath;
     [self.backView.layer setMask:layer];
+    [self drawUpdateLine:YES];
 }
 
 - (void)drawCircle{
@@ -344,6 +349,71 @@ static NSInteger defaultTag = 100000;
     CAShapeLayer *layer = [CAShapeLayer layer];
         layer.path = bezierPath.CGPath;
     [self.backView.layer setMask:layer];
+    [self drawPath:YES];
+}
+
+- (void)drawUpdateLine:(BOOL)isSelect{
+    CGFloat width = self.frame.size.width;
+    UIBezierPath *bezierPath = [UIBezierPath bezierPath];
+    
+    [bezierPath moveToPoint: CGPointMake(0, self.radian-1 + (-10))];
+    if(self.tag == 100000){
+        CGFloat startAngle = M_PI; //
+        CGFloat endAngle = M_PI*1.5 ;
+        [bezierPath addArcWithCenter:CGPointMake(19, 25 + (-10)) radius:20 startAngle:startAngle endAngle:endAngle clockwise:YES];
+    }
+    [bezierPath addLineToPoint: CGPointMake(width*0.5-16, self.radian-1 + (-10))];
+    [bezierPath addQuadCurveToPoint:CGPointMake(width*0.5+16, self.radian-1 + (-10)) controlPoint:CGPointMake(width*0.5, -(self.minusRadian+2 + (10)))];
+    
+    if(self.tag == 100003){
+        [bezierPath addLineToPoint:CGPointMake(width-19, self.radian-1 + (-10))];
+        CGFloat startAngle = M_PI*1.5; //
+        CGFloat endAngle = 0 ;
+        [bezierPath addArcWithCenter:CGPointMake(width-19, 25 + (-10)) radius:20 startAngle:startAngle endAngle:endAngle clockwise:YES];
+    }else{
+        [bezierPath addLineToPoint:CGPointMake(width, self.radian-1 + (-10))];
+    }
+    
+    [self.lineLayer removeFromSuperlayer];
+    self.lineLayer = [CAShapeLayer layer];
+    self.lineLayer.lineWidth = 1;
+    self.lineLayer.strokeColor = [UIColor colorWithRed:32.0/255.0 green:39.0/255.0 blue:75.0/255.0 alpha:0.18].CGColor;
+    self.lineLayer.path = bezierPath.CGPath;
+    self.lineLayer.fillColor = nil; // 默认为blackColor
+    [self.layer addSublayer:self.lineLayer];
+}
+
+- (void)drawPath:(BOOL)isSelect{
+    CGFloat width = self.frame.size.width;
+    UIBezierPath *bezierPath = [UIBezierPath bezierPath];
+    
+    [bezierPath moveToPoint: CGPointMake(0, self.radian-1 + (-10))];
+    if(self.tag == 100000){
+        CGFloat startAngle = M_PI; //
+        CGFloat endAngle = M_PI*1.5 ;
+        [bezierPath addArcWithCenter:CGPointMake(19, 25 + (-10)) radius:20 startAngle:startAngle endAngle:endAngle clockwise:YES];
+    }
+    [bezierPath addLineToPoint: CGPointMake(width*0.5-16, self.radian-1 + (-10))];
+    if(isSelect){
+        [bezierPath addQuadCurveToPoint:CGPointMake(width*0.5+16, self.radian-1 + (-10)) controlPoint:CGPointMake(width*0.5, -(self.radian+2 + (10)))];
+    }
+   
+    if(self.tag == 100003){
+        [bezierPath addLineToPoint:CGPointMake(width-19, self.radian-1 + (-10))];
+        CGFloat startAngle = M_PI*1.5; //
+        CGFloat endAngle = 0 ;
+        [bezierPath addArcWithCenter:CGPointMake(width-19, 25 + (-10)) radius:20 startAngle:startAngle endAngle:endAngle clockwise:YES];
+    }else{
+        [bezierPath addLineToPoint:CGPointMake(width, self.radian-1 + (-10))];
+    }
+    
+    [self.lineLayer removeFromSuperlayer];
+    self.lineLayer = [CAShapeLayer layer];
+    self.lineLayer.lineWidth = 1;
+    self.lineLayer.strokeColor = [UIColor colorWithRed:32.0/255.0 green:39.0/255.0 blue:75.0/255.0 alpha:0.18].CGColor;
+    self.lineLayer.path = bezierPath.CGPath;
+    self.lineLayer.fillColor = nil; // 默认为blackColor
+    [self.layer addSublayer:self.lineLayer];
 }
 
 #pragma mark ----layoutSubviews
