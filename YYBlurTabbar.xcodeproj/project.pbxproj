@@ -23,6 +23,7 @@
 		B5DF81922561039000A4248A /* coach_96.png in Resources */ = {isa = PBXBuildFile; fileRef = B5DF818E2561039000A4248A /* coach_96.png */; };
 		B5DF81932561039000A4248A /* track_96.png in Resources */ = {isa = PBXBuildFile; fileRef = B5DF818F2561039000A4248A /* track_96.png */; };
 		B5DF81942561039000A4248A /* fasting_96.png in Resources */ = {isa = PBXBuildFile; fileRef = B5DF81902561039000A4248A /* fasting_96.png */; };
+		B5DF819E256104AF00A4248A /* UIFont+FTRoundFont.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DF819D256104AF00A4248A /* UIFont+FTRoundFont.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,8 @@
 		B5DF818E2561039000A4248A /* coach_96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coach_96.png; sourceTree = "<group>"; };
 		B5DF818F2561039000A4248A /* track_96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track_96.png; sourceTree = "<group>"; };
 		B5DF81902561039000A4248A /* fasting_96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fasting_96.png; sourceTree = "<group>"; };
+		B5DF819C256104AF00A4248A /* UIFont+FTRoundFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+FTRoundFont.h"; sourceTree = "<group>"; };
+		B5DF819D256104AF00A4248A /* UIFont+FTRoundFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FTRoundFont.m"; sourceTree = "<group>"; };
 		DCE6813E0E4EBA99842C419D /* Pods-YYBlurTabbar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYBlurTabbar.debug.xcconfig"; path = "Target Support Files/Pods-YYBlurTabbar/Pods-YYBlurTabbar.debug.xcconfig"; sourceTree = "<group>"; };
 		FEEF30F1B3B943980B59CD32 /* libPods-YYBlurTabbar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YYBlurTabbar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -113,6 +116,7 @@
 		B5DF816E256102BF00A4248A /* BlurTabbar */ = {
 			isa = PBXGroup;
 			children = (
+				B5DF819B2561049D00A4248A /* Font */,
 				B5DF818C2561038A00A4248A /* Images */,
 				B5DF81742561030F00A4248A /* FTTabBar.h */,
 				B5DF81762561030F00A4248A /* FTTabBar.m */,
@@ -148,6 +152,15 @@
 				B5DF818F2561039000A4248A /* track_96.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		B5DF819B2561049D00A4248A /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				B5DF819C256104AF00A4248A /* UIFont+FTRoundFont.h */,
+				B5DF819D256104AF00A4248A /* UIFont+FTRoundFont.m */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		BB4FB0149E752EF106A57CCD /* Frameworks */ = {
@@ -260,6 +273,7 @@
 				B5DF81872561032900A4248A /* AViewController.m in Sources */,
 				B5DF818A2561032900A4248A /* CViewController.m in Sources */,
 				B5DF81522561025400A4248A /* AppDelegate.m in Sources */,
+				B5DF819E256104AF00A4248A /* UIFont+FTRoundFont.m in Sources */,
 				B5DF81772561030F00A4248A /* FTTabBarItem.m in Sources */,
 				B5DF81632561025700A4248A /* main.m in Sources */,
 				B5DF817C2561031B00A4248A /* FTBaseTabBarViewController.m in Sources */,
@@ -333,7 +347,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -386,7 +400,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

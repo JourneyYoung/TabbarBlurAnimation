@@ -10,6 +10,7 @@
 #import <YYImage/YYImage.h>
 #import <Masonry.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "UIFont+FTRoundFont.h"
 
 static NSInteger defaultTag = 100000;
 
@@ -41,6 +42,8 @@ static NSInteger defaultTag = 100000;
 
 @property (nonatomic, strong) UIView *redRotView;
 
+@property (nonatomic, assign) BOOL isAnimation;
+
 @end
 
 @implementation FTTabBarItem
@@ -67,7 +70,7 @@ static NSInteger defaultTag = 100000;
 #pragma mark ----set
 
 - (void)configUI{
-    UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
     self.backView = [[UIVisualEffectView alloc] initWithEffect:effect];
     [self addSubview:self.backView];
     
@@ -121,6 +124,8 @@ static NSInteger defaultTag = 100000;
 
 - (void)setSelected:(BOOL)animated{
     self.isSelected = YES;
+    self.isAnimation = animated;
+    self.titleLabel.textColor = [UIColor colorWithRed:35.0/255.0 green:225.0/255.0 blue:198.0/255.0 alpha:1];
     [self.redRotView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.animationView.mas_right);
         make.top.equalTo(self.animationView);
@@ -176,6 +181,8 @@ static NSInteger defaultTag = 100000;
 
 - (void)setUnSelected:(BOOL)animated{
     self.isSelected = NO;
+    self.isAnimation = animated;
+    self.titleLabel.textColor = [UIColor colorWithRed:187.0/255.0 green:188.0/255.0 blue:198.0/255.0 alpha:1];
     [self.redRotView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.normalImageView.mas_right);
         make.top.equalTo(self.normalImageView);
@@ -352,6 +359,9 @@ static NSInteger defaultTag = 100000;
     self.backView.frame = CGRectMake(0, -10, rect.size.width, rect.size.height+30);
     self.animationView.frame = CGRectMake(0, -2, 32, 32);
     self.animationView.center = CGPointMake(rect.size.width*0.5, 14);
+    if(self.isAnimation){
+        return;
+    }
     if(self.isSelected){
         [self setSelected:NO];
     }else{
@@ -362,8 +372,8 @@ static NSInteger defaultTag = 100000;
 - (UILabel *)titleLabel{
     if(!_titleLabel){
         _titleLabel = [[UILabel alloc]init];
-        _titleLabel.font = [UIFont systemFontOfSize:11];
-        _titleLabel.textColor = UIColor.blackColor;
+        _titleLabel.font = [UIFont roundMediumFont:11];
+        _titleLabel.textColor = [UIColor colorWithRed:187.0/255.0 green:188.0/255.0 blue:198.0/255.0 alpha:1];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _titleLabel;
