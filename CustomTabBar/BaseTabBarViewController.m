@@ -2,8 +2,8 @@
 //  BaseTabBarViewController.m
 //  CustomTabBar
 //
-//  Created by LiMin on 2019/12/17.
-//  Copyright © 2019 LiMin. All rights reserved.
+//  Created by Journey on 2020/11/15.
+//  Copyright © 2020 Journey. All rights reserved.
 //
 
 #import "BaseTabBarViewController.h"
@@ -13,8 +13,8 @@
 #import "CViewController.h"
 #import "DViewController.h"
 
-#import "LMTabBar.h"
-#import "LMTabBarItem.h"
+#import "FTTabBar.h"
+#import "FTTabBarItem.h"
 
 #import <Masonry.h>
 #import <lottie-ios/Lottie/LOTAnimationView.h>
@@ -31,7 +31,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 
 @interface BaseTabBarViewController ()<LMTabBarDelegate, UITabBarControllerDelegate>
 
-@property (nonatomic, strong) LMTabBar *customTabBar;
+@property (nonatomic, strong) FTTabBar *customTabBar;
 @property (nonatomic, assign) NSInteger lastSelectedIndex;
 @property (nonatomic, assign) NSInteger currentSelectedIndex;
 
@@ -77,9 +77,9 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
     NSArray *animationJsonNameArray = @[@"fasting_96",@"track_96",@"learn_96",@"coach_96"];
     NSArray *titleArary = @[@"Fasting",@"Track",@"Learn",@"Coach"];
     NSArray *normalArray = @[@"icon_tab_fast",@"icon_tab_track",@"icon_learn",@"icon_coach"];
-    NSMutableArray <LMTabBarItem *>*items = [NSMutableArray array];
+    NSMutableArray <FTTabBarItem *>*items = [NSMutableArray array];
     for (int i = 0; i < self.viewControllers.count; i++) {
-        LMTabBarItem *item = [[LMTabBarItem alloc]initWithPngName:animationJsonNameArray[i] normalImage:normalArray[i] title:titleArary[i]];
+        FTTabBarItem *item = [[FTTabBarItem alloc]initWithPngName:animationJsonNameArray[i] normalImage:normalArray[i] title:titleArary[i]];
         
         [items addObject:item];
         item.tag = i;
@@ -97,7 +97,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 
 #pragma mark - LMTabBarDelegate
 
-- (void)tabBar:(LMTabBar *)tab didSelectItem:(LMTabBarItem *)item atIndex:(NSInteger)index {
+- (void)tabBar:(FTTabBar *)tab didSelectItem:(FTTabBarItem *)item atIndex:(NSInteger)index {
     if (index != self.currentSelectedIndex) {//切换tabBarItem，并且点击的是非选中的item，则执行下面动画
         self.lastSelectedIndex = self.currentSelectedIndex;
         self.currentSelectedIndex = index;
@@ -107,7 +107,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 
 - (void)setLastSelectedIndex:(NSInteger)lastSelectedIndex {
     _lastSelectedIndex = lastSelectedIndex;
-    LMTabBarItem *item = self.customTabBar.lmItems[lastSelectedIndex];
+    FTTabBarItem *item = self.customTabBar.lmItems[lastSelectedIndex];
     [item setUnSelected:YES];
     for (UIView *view in item.subviews) {
         if ([view isKindOfClass:NSClassFromString(@"YYAnimatedImageView")]) {//取YYAnimatedImageView
@@ -120,7 +120,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 
 - (void)setCurrentSelectedIndex:(NSInteger)currentSelectedIndex {
     _currentSelectedIndex = currentSelectedIndex;
-    LMTabBarItem *item = self.customTabBar.lmItems[currentSelectedIndex];
+    FTTabBarItem *item = self.customTabBar.lmItems[currentSelectedIndex];
     [item setSelected:YES];
     for (UIView *view in item.subviews) {
         if ([view isKindOfClass:NSClassFromString(@"YYAnimatedImageView")]) {//取YYAnimatedImageView
@@ -134,9 +134,9 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 
 #pragma mark ----lazy
 
-- (LMTabBar *)customTabBar {
+- (FTTabBar *)customTabBar {
     if (!_customTabBar) {
-        _customTabBar = [[LMTabBar alloc]init];
+        _customTabBar = [[FTTabBar alloc]init];
         _customTabBar.backgroundColor = [UIColor clearColor];
         _customTabBar.lmDelegate = self;
     }

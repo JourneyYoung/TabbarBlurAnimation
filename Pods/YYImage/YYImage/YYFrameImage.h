@@ -2,7 +2,7 @@
 //  YYFrameImage.h
 //  YYImage <https://github.com/ibireme/YYImage>
 //
-//  Created by ibireme on 14/12/9.
+//  Created by ibireme on 14/11/9.
 //  Copyright (c) 2015 ibireme.
 //
 //  This source code is licensed under the MIT-style license found in the

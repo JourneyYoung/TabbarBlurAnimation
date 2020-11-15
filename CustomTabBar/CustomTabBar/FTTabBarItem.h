@@ -2,21 +2,21 @@
 //  LMTabBarItem.h
 //  CustomTabBar
 //
-//  Created by LiMin on 2019/12/18.
-//  Copyright © 2019 LiMin. All rights reserved.
+//  Created by Journey on 2020/11/15.
+//  Copyright © 2020 Journey. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol LMTabBarItemDelegate;
+@protocol FTTabBarItemDelegate;
 
-@interface LMTabBarItem : UIView//继承自UIView
+@interface FTTabBarItem : UIView//继承自UIView
 
 //@property (nonatomic, strong) NSString *animationJsonName;
 
-@property (nonatomic, weak) id <LMTabBarItemDelegate> delegate;
+@property (nonatomic, weak) id <FTTabBarItemDelegate> delegate;
 
 //重写初始化方法
 - (instancetype)initWithPngName:(NSString *)name normalImage:(NSString *)normal title:(NSString *)title;
@@ -27,11 +27,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@protocol LMTabBarItemDelegate <NSObject>
+@protocol FTTabBarItemDelegate <NSObject>
 
 @optional
 
-- (void)tabBarItem:(LMTabBarItem *)item didSelectIndex:(NSInteger)index;//代理处理点击事件
+- (void)tabBarItem:(FTTabBarItem *)item didSelectIndex:(NSInteger)index;//代理处理点击事件
 
 @end
 

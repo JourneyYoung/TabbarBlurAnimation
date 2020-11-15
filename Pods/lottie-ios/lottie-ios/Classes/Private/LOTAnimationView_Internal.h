@@ -2,7 +2,7 @@
 //  LOTAnimationView_Internal.h
 //  Lottie
 //
-//  Created by Brandon Withrow on 12/7/16.
+//  Created by Brandon Withrow on 11/7/16.
 //  Copyright © 2016 Brandon Withrow. All rights reserved.
 //
 

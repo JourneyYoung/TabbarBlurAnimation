@@ -2,8 +2,8 @@
 //  DViewController.h
 //  CustomTabBar
 //
-//  Created by LiMin on 2019/12/17.
-//  Copyright © 2019 LiMin. All rights reserved.
+//  Created by Journey on 2020/11/17.
+//  Copyright © 2020 Journey. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -25,8 +25,8 @@
 		18922F7023AA028E007EE084 /* huiyuan.json in Resources */ = {isa = PBXBuildFile; fileRef = 18922F6F23AA028E007EE084 /* huiyuan.json */; };
 		18922F7223AA0293007EE084 /* dingdan.json in Resources */ = {isa = PBXBuildFile; fileRef = 18922F7123AA0293007EE084 /* dingdan.json */; };
 		18922F7423AA029C007EE084 /* wode.json in Resources */ = {isa = PBXBuildFile; fileRef = 18922F7323AA029C007EE084 /* wode.json */; };
-		18922F7723AA0D85007EE084 /* LMTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18922F7623AA0D84007EE084 /* LMTabBarItem.m */; };
-		18922F7A23AA17D3007EE084 /* LMTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18922F7923AA17D3007EE084 /* LMTabBar.m */; };
+		18922F7723AA0D85007EE084 /* FTTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18922F7623AA0D84007EE084 /* FTTabBarItem.m */; };
+		18922F7A23AA17D3007EE084 /* FTTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18922F7923AA17D3007EE084 /* FTTabBar.m */; };
 		18922F7C23AB1E3B007EE084 /* fangzi.json in Resources */ = {isa = PBXBuildFile; fileRef = 18922F7B23AB1E3B007EE084 /* fangzi.json */; };
 		B5DF80CA255F8E4900A4248A /* 12h.png in Resources */ = {isa = PBXBuildFile; fileRef = B5DF80C9255F8E4900A4248A /* 12h.png */; };
 		B5DF80DE255F960000A4248A /* fasting_96.png in Resources */ = {isa = PBXBuildFile; fileRef = B5DF80D6255F960000A4248A /* fasting_96.png */; };
@@ -83,10 +83,10 @@
 		18922F6F23AA028E007EE084 /* huiyuan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = huiyuan.json; sourceTree = "<group>"; };
 		18922F7123AA0293007EE084 /* dingdan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dingdan.json; sourceTree = "<group>"; };
 		18922F7323AA029C007EE084 /* wode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wode.json; sourceTree = "<group>"; };
-		18922F7523AA0D84007EE084 /* LMTabBarItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMTabBarItem.h; sourceTree = "<group>"; };
-		18922F7623AA0D84007EE084 /* LMTabBarItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMTabBarItem.m; sourceTree = "<group>"; };
-		18922F7823AA17D3007EE084 /* LMTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMTabBar.h; sourceTree = "<group>"; };
-		18922F7923AA17D3007EE084 /* LMTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMTabBar.m; sourceTree = "<group>"; };
+		18922F7523AA0D84007EE084 /* FTTabBarItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTTabBarItem.h; sourceTree = "<group>"; };
+		18922F7623AA0D84007EE084 /* FTTabBarItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTTabBarItem.m; sourceTree = "<group>"; };
+		18922F7823AA17D3007EE084 /* FTTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTTabBar.h; sourceTree = "<group>"; };
+		18922F7923AA17D3007EE084 /* FTTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTTabBar.m; sourceTree = "<group>"; };
 		18922F7B23AB1E3B007EE084 /* fangzi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fangzi.json; sourceTree = "<group>"; };
 		63EC88D377164820110EA6DD /* Pods-CustomTabBar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomTabBar.release.xcconfig"; path = "Target Support Files/Pods-CustomTabBar/Pods-CustomTabBar.release.xcconfig"; sourceTree = "<group>"; };
 		B5DF80C9255F8E4900A4248A /* 12h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 12h.png; sourceTree = "<group>"; };
@@ -205,10 +205,10 @@
 		18922F7D23AB6351007EE084 /* CustomTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				18922F7523AA0D84007EE084 /* LMTabBarItem.h */,
-				18922F7623AA0D84007EE084 /* LMTabBarItem.m */,
-				18922F7823AA17D3007EE084 /* LMTabBar.h */,
-				18922F7923AA17D3007EE084 /* LMTabBar.m */,
+				18922F7523AA0D84007EE084 /* FTTabBarItem.h */,
+				18922F7623AA0D84007EE084 /* FTTabBarItem.m */,
+				18922F7823AA17D3007EE084 /* FTTabBar.h */,
+				18922F7923AA17D3007EE084 /* FTTabBar.m */,
 			);
 			path = CustomTabBar;
 			sourceTree = "<group>";
@@ -412,10 +412,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				18922EBD23A86956007EE084 /* ViewController.m in Sources */,
-				18922F7723AA0D85007EE084 /* LMTabBarItem.m in Sources */,
+				18922F7723AA0D85007EE084 /* FTTabBarItem.m in Sources */,
 				18922F6523A8CB80007EE084 /* BViewController.m in Sources */,
 				18922F6223A8CB76007EE084 /* AViewController.m in Sources */,
-				18922F7A23AA17D3007EE084 /* LMTabBar.m in Sources */,
+				18922F7A23AA17D3007EE084 /* FTTabBar.m in Sources */,
 				18922EB723A86956007EE084 /* AppDelegate.m in Sources */,
 				18922EC823A86958007EE084 /* main.m in Sources */,
 				18922F5F23A8CB43007EE084 /* BaseTabBarViewController.m in Sources */,

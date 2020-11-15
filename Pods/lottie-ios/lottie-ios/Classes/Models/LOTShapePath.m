@@ -2,7 +2,7 @@
 //  LOTShapePath.m
 //  LottieAnimator
 //
-//  Created by Brandon Withrow on 12/15/15.
+//  Created by Brandon Withrow on 11/15/15.
 //  Copyright © 2015 Brandon Withrow. All rights reserved.
 //
 

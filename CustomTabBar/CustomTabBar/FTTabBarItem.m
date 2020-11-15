@@ -2,17 +2,17 @@
 //  LMTabBarItem.m
 //  CustomTabBar
 //
-//  Created by LiMin on 2019/12/18.
-//  Copyright © 2019 LiMin. All rights reserved.
+//  Created by Journey on 2020/11/15.
+//  Copyright © 2020 Journey. All rights reserved.
 //
 
-#import "LMTabBarItem.h"
+#import "FTTabBarItem.h"
 #import <YYImage/YYImage.h>
 #import <Masonry.h>
 
 static NSInteger defaultTag = 100000;
 
-@interface LMTabBarItem ()
+@interface FTTabBarItem ()
 
 @property (nonatomic, strong) UIVisualEffectView *backView;
 
@@ -26,7 +26,7 @@ static NSInteger defaultTag = 100000;
 
 @property (nonatomic, assign) NSInteger radian;
 
-@property (nonatomic, assign) NSInteger minusRadian;
+@property (nonatomic, assign) CGFloat minusRadian;
 
 @property (nonatomic, strong) NSTimer *selectedTimer;
 
@@ -41,7 +41,7 @@ static NSInteger defaultTag = 100000;
 
 @end
 
-@implementation LMTabBarItem
+@implementation FTTabBarItem
 
 //重写初始化方法
 - (instancetype)initWithPngName:(NSString *)name normalImage:(NSString *)normal title:(NSString *)title{
@@ -84,12 +84,12 @@ static NSInteger defaultTag = 100000;
     [self addSubview:self.normalImageView];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(42);
+        make.top.equalTo(self.normalImageView.mas_bottom).offset(4);
         make.centerX.equalTo(self);
     }];
     
     [self.normalImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(8);
+        make.top.equalTo(self).offset(6);
         make.centerX.equalTo(self);
         make.height.width.equalTo(@24);
     }];
@@ -124,9 +124,9 @@ static NSInteger defaultTag = 100000;
     animation.removedOnCompletion = YES;
     animation.autoreverses = NO;
     animation.fillMode = kCAFillModeRemoved;
-    animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(self.frame.size.width*0.5, 16)];
+    animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(self.frame.size.width*0.5, 14)];
     animation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.frame.size.width*0.5, 10)];
-    self.animationView.center = CGPointMake(self.frame.size.width*0.5, 16);
+    self.animationView.center = CGPointMake(self.frame.size.width*0.5, 14);
     [self.animationView.layer addAnimation:animation forKey:@"spring"];
     
     [self setNeedsDisplay];
@@ -187,7 +187,7 @@ static NSInteger defaultTag = 100000;
     CGFloat width = self.frame.size.width;
     CGFloat height = self.frame.size.height;
     
-    self.minusRadian -= 0.25;
+    self.minusRadian -= 1;
     
     if(self.minusRadian <= 0){
         [self.unSelectedTimer invalidate];
@@ -251,7 +251,7 @@ static NSInteger defaultTag = 100000;
     CGFloat width = self.frame.size.width;
     CGFloat height = self.frame.size.height;
     
-    self.minusRadian += 0.25;
+    self.minusRadian += 1;
     if(self.minusRadian >= 6){
         [self.selectedTimer invalidate];
         self.selectedTimer = nil;
@@ -324,8 +324,8 @@ static NSInteger defaultTag = 100000;
     rect.size.height += 20;
     
     self.backView.frame = CGRectMake(0, -10, rect.size.width, rect.size.height+30);
-    self.animationView.frame = CGRectMake(0, 0, 32, 32);
-    self.animationView.center = CGPointMake(rect.size.width*0.5, 16);
+    self.animationView.frame = CGRectMake(0, -2, 32, 32);
+    self.animationView.center = CGPointMake(rect.size.width*0.5, 14);
     if(self.isSelected){
         [self setSelected:NO];
     }else{

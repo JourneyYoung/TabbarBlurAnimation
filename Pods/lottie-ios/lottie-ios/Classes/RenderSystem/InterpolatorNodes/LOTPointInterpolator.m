@@ -2,7 +2,7 @@
 //  LOTPointInterpolator.m
 //  Lottie
 //
-//  Created by brandon_withrow on 7/12/17.
+//  Created by brandon_withrow on 7/11/17.
 //  Copyright © 2017 Airbnb. All rights reserved.
 //
 

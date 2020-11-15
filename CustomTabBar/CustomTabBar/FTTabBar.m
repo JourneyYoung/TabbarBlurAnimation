@@ -2,19 +2,19 @@
 //  LMTabBar.m
 //  CustomTabBar
 //
-//  Created by LiMin on 2019/12/18.
-//  Copyright © 2019 LiMin. All rights reserved.
+//  Created by Journey on 2020/11/15.
+//  Copyright © 2020 Journey. All rights reserved.
 //
 
-#import "LMTabBar.h"
-#import "LMTabBarItem.h"
+#import "FTTabBar.h"
+#import "FTTabBarItem.h"
 
 //主要是将系统的item移除掉, 然后添加上自定义的item:
-@interface LMTabBar ()<LMTabBarItemDelegate>
+@interface FTTabBar ()<FTTabBarItemDelegate>
 
 @end
 
-@implementation LMTabBar
+@implementation FTTabBar
 
 //重写初始化方法
 - (instancetype)init {
@@ -43,7 +43,7 @@
     return self;
 }
 
-- (void)setLmItems:(NSArray<LMTabBarItem *> *)lmItems {
+- (void)setLmItems:(NSArray<FTTabBarItem *> *)lmItems {
     _lmItems = lmItems;
 }
 
@@ -71,8 +71,9 @@
     [self addSubview:backView];
     CGFloat width = self.frame.size.width/self.lmItems.count;
     for (int i = 0; i < self.lmItems.count; i++) {
-        LMTabBarItem *item = [self.lmItems objectAtIndex:i];
-        item.frame = CGRectMake(i*width, 0, width, LMTabBarHeight);
+        FTTabBarItem *item = [self.lmItems objectAtIndex:i];
+        //+1是因为float/count的精度问题
+        item.frame = CGRectMake(i*width, 0, width+1, LMTabBarHeight);
 
         [self addSubview:item];
         item.delegate = self;
@@ -93,7 +94,7 @@
 
 #pragma mark ----LMTabBarItemDelegate
 //实现代理方法
-- (void)tabBarItem:(LMTabBarItem *)item didSelectIndex:(NSInteger)index {
+- (void)tabBarItem:(FTTabBarItem *)item didSelectIndex:(NSInteger)index {
     if (self.lmDelegate && [self.lmDelegate respondsToSelector:@selector(tabBar:didSelectItem:atIndex:)]) {
         [self.lmDelegate tabBar:self didSelectItem:item atIndex:index];
     }

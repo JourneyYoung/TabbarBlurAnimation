@@ -2,7 +2,7 @@
 //  LOTMask.m
 //  LottieAnimator
 //
-//  Created by Brandon Withrow on 12/14/15.
+//  Created by Brandon Withrow on 11/14/15.
 //  Copyright © 2015 Brandon Withrow. All rights reserved.
 //
 
