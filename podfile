@@ -3,4 +3,5 @@ target 'CustomTabBar' do
 pod 'lottie-ios', ‘~> 2.5.2‘
 pod 'Masonry'
 pod 'YYImage'
+pod 'Masonry'
 end

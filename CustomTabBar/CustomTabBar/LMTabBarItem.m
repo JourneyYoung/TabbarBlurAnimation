@@ -8,6 +8,7 @@
 
 #import "LMTabBarItem.h"
 #import <YYImage/YYImage.h>
+#import <Masonry.h>
 
 static NSInteger defaultTag = 100000;
 
@@ -43,9 +44,11 @@ static NSInteger defaultTag = 100000;
 @implementation LMTabBarItem
 
 //重写初始化方法
-- (instancetype)initWithPngName:(NSString *)name{
+- (instancetype)initWithPngName:(NSString *)name normalImage:(NSString *)normal title:(NSString *)title{
     if (self = [super init]) {
         self.animateName = name;
+        self.normalImageName = normal;
+        self.titleName = title;
         [self configUI];
     }
     return self;
@@ -77,7 +80,24 @@ static NSInteger defaultTag = 100000;
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapItem:)];
     [self addGestureRecognizer:gesture];
     
+    [self addSubview:self.titleLabel];
+    [self addSubview:self.normalImageView];
     
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self).offset(42);
+        make.centerX.equalTo(self);
+    }];
+    
+    [self.normalImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self).offset(8);
+        make.centerX.equalTo(self);
+        make.height.width.equalTo(@24);
+    }];
+    
+    self.titleLabel.text = self.titleName;
+    UIImage *normalImage = [UIImage imageNamed:self.normalImageName];
+
+    self.normalImageView.image = [normalImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
 
 // 重写setTag方法
@@ -87,6 +107,31 @@ static NSInteger defaultTag = 100000;
 
 - (void)setSelected:(BOOL)animated{
     self.isSelected = YES;
+    //未选中图片淡出，
+    [UIView animateWithDuration:0.1 animations:^{
+        self.normalImageView.alpha = 0.0;
+        self.animationView.alpha = 1;
+    } completion:^(BOOL finished) {
+        
+    }];
+    //选中图片淡入向上弹动再下来
+    CASpringAnimation *animation = [CASpringAnimation animationWithKeyPath:@"position"];
+    animation.mass = 0.5;
+    animation.stiffness = 150.f;
+    animation.damping = 1.f;
+    animation.initialVelocity = 10.f;
+    animation.duration = 0.25;
+    animation.removedOnCompletion = YES;
+    animation.autoreverses = NO;
+    animation.fillMode = kCAFillModeRemoved;
+    animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(self.frame.size.width*0.5, 16)];
+    animation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.frame.size.width*0.5, 10)];
+    self.animationView.center = CGPointMake(self.frame.size.width*0.5, 16);
+    [self.animationView.layer addAnimation:animation forKey:@"spring"];
+    
+    [self setNeedsDisplay];
+
+    
     if(self.selectedTimer){
         [self.selectedTimer invalidate];
         self.selectedTimer = nil;
@@ -110,6 +155,13 @@ static NSInteger defaultTag = 100000;
 
 - (void)setUnSelected:(BOOL)animated{
     self.isSelected = NO;
+    //未选中图片淡入
+    [UIView animateWithDuration:0.1 animations:^{
+        self.normalImageView.alpha = 1.0;
+        self.animationView.alpha = 0;
+    } completion:^(BOOL finished) {
+        
+    }];
     if(self.selectedTimer){
         [self.selectedTimer invalidate];
         self.selectedTimer = nil;
@@ -289,6 +341,14 @@ static NSInteger defaultTag = 100000;
         _titleLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _titleLabel;
+}
+
+- (UIImageView *)normalImageView{
+    if(!_normalImageView){
+        _normalImageView = [[UIImageView alloc]init];
+        _normalImageView.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    return _normalImageView;
 }
 
 @end

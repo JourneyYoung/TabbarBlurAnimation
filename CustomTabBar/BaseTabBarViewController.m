@@ -75,9 +75,11 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
     
     //创建items数组
     NSArray *animationJsonNameArray = @[@"fasting_96",@"track_96",@"learn_96",@"coach_96"];
+    NSArray *titleArary = @[@"Fasting",@"Track",@"Learn",@"Coach"];
+    NSArray *normalArray = @[@"icon_tab_fast",@"icon_tab_track",@"icon_learn",@"icon_coach"];
     NSMutableArray <LMTabBarItem *>*items = [NSMutableArray array];
     for (int i = 0; i < self.viewControllers.count; i++) {
-        LMTabBarItem *item = [[LMTabBarItem alloc]initWithPngName:animationJsonNameArray[i]];
+        LMTabBarItem *item = [[LMTabBarItem alloc]initWithPngName:animationJsonNameArray[i] normalImage:normalArray[i] title:titleArary[i]];
         
         [items addObject:item];
         item.tag = i;

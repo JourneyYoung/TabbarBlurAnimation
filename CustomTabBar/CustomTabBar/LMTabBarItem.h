@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id <LMTabBarItemDelegate> delegate;
 
 //重写初始化方法
-- (instancetype)initWithPngName:(NSString *)name;
+- (instancetype)initWithPngName:(NSString *)name normalImage:(NSString *)normal title:(NSString *)title;
 
 - (void)setSelected:(BOOL)animated;
 
