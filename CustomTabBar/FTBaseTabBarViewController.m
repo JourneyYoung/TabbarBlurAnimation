@@ -1,12 +1,12 @@
 //
-//  BaseTabBarViewController.m
+//  FTBaseTabBarViewController.m
 //  CustomTabBar
 //
 //  Created by Journey on 2020/11/15.
 //  Copyright © 2020 Journey. All rights reserved.
 //
 
-#import "BaseTabBarViewController.h"
+#import "FTBaseTabBarViewController.h"
 
 #import "AViewController.h"
 #import "BViewController.h"
@@ -17,7 +17,6 @@
 #import "FTTabBarItem.h"
 
 #import <Masonry.h>
-#import <lottie-ios/Lottie/LOTAnimationView.h>
 
 #import <YYImage/YYImage.h>
 
@@ -29,7 +28,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 }\
 (isPhoneX);})
 
-@interface BaseTabBarViewController ()<LMTabBarDelegate, UITabBarControllerDelegate>
+@interface FTBaseTabBarViewController ()<LMTabBarDelegate, UITabBarControllerDelegate>
 
 @property (nonatomic, strong) FTTabBar *customTabBar;
 @property (nonatomic, assign) NSInteger lastSelectedIndex;
@@ -37,7 +36,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 
 @end
 
-@implementation BaseTabBarViewController
+@implementation FTBaseTabBarViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,7 +48,6 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
     self.selectedIndex = 0;
     // Do any additional setup after loading the view.
 }
- 
 
 #pragma mark ----setupChildVC
 
@@ -94,6 +92,19 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
     }];
 }
 
+- (void)setSelectedIndex:(NSUInteger)selectedIndex{
+    if (selectedIndex != self.currentSelectedIndex) {//切换tabBarItem，并且点击的是非选中的item，则执行下面动画
+        self.lastSelectedIndex = self.currentSelectedIndex;
+        self.currentSelectedIndex = selectedIndex;
+    }
+    [super setSelectedIndex:selectedIndex];
+}
+
+- (void)showRedDot:(BOOL)isShow{
+    //只处理最后一个item
+    FTTabBarItem *item = self.customTabBar.lmItems[3];
+    [item shouldShowRedRot:isShow];
+}
 
 #pragma mark - LMTabBarDelegate
 

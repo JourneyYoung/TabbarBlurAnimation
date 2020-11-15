@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "BaseTabBarViewController.h"
+#import "FTBaseTabBarViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +20,8 @@
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    BaseTabBarViewController *tabvc = [[BaseTabBarViewController alloc]init];
+    FTBaseTabBarViewController *tabvc = [[FTBaseTabBarViewController alloc]init];
+    [tabvc showRedDot:YES];
     self.window.rootViewController = tabvc;
     [self.window makeKeyAndVisible];
     return YES;

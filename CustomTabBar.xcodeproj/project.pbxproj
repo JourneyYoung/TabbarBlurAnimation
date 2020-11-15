@@ -16,7 +16,6 @@
 		18922EC823A86958007EE084 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18922EC723A86958007EE084 /* main.m */; };
 		18922ED223A86958007EE084 /* CustomTabBarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18922ED123A86958007EE084 /* CustomTabBarTests.m */; };
 		18922EDD23A86958007EE084 /* CustomTabBarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18922EDC23A86958007EE084 /* CustomTabBarUITests.m */; };
-		18922F5F23A8CB43007EE084 /* BaseTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18922F5E23A8CB43007EE084 /* BaseTabBarViewController.m */; };
 		18922F6223A8CB76007EE084 /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18922F6123A8CB76007EE084 /* AViewController.m */; };
 		18922F6523A8CB80007EE084 /* BViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18922F6423A8CB80007EE084 /* BViewController.m */; };
 		18922F6823A8CB8A007EE084 /* CViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18922F6723A8CB8A007EE084 /* CViewController.m */; };
@@ -33,6 +32,7 @@
 		B5DF80E1255F960000A4248A /* coach_96.png in Resources */ = {isa = PBXBuildFile; fileRef = B5DF80D9255F960000A4248A /* coach_96.png */; };
 		B5DF80E2255F960000A4248A /* track_96.png in Resources */ = {isa = PBXBuildFile; fileRef = B5DF80DA255F960000A4248A /* track_96.png */; };
 		B5DF80E3255F960000A4248A /* learn_96.png in Resources */ = {isa = PBXBuildFile; fileRef = B5DF80DB255F960000A4248A /* learn_96.png */; };
+		B5DF81112560FF9800A4248A /* FTBaseTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18922F5E23A8CB43007EE084 /* FTBaseTabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +69,8 @@
 		18922ED823A86958007EE084 /* CustomTabBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomTabBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18922EDC23A86958007EE084 /* CustomTabBarUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarUITests.m; sourceTree = "<group>"; };
 		18922EDE23A86958007EE084 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18922F5D23A8CB43007EE084 /* BaseTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTabBarViewController.h; sourceTree = "<group>"; };
-		18922F5E23A8CB43007EE084 /* BaseTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarViewController.m; sourceTree = "<group>"; };
+		18922F5D23A8CB43007EE084 /* FTBaseTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTBaseTabBarViewController.h; sourceTree = "<group>"; };
+		18922F5E23A8CB43007EE084 /* FTBaseTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTBaseTabBarViewController.m; sourceTree = "<group>"; };
 		18922F6023A8CB76007EE084 /* AViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AViewController.h; sourceTree = "<group>"; };
 		18922F6123A8CB76007EE084 /* AViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AViewController.m; sourceTree = "<group>"; };
 		18922F6323A8CB80007EE084 /* BViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BViewController.h; sourceTree = "<group>"; };
@@ -156,8 +156,8 @@
 				18922EB623A86956007EE084 /* AppDelegate.m */,
 				18922EBB23A86956007EE084 /* ViewController.h */,
 				18922EBC23A86956007EE084 /* ViewController.m */,
-				18922F5D23A8CB43007EE084 /* BaseTabBarViewController.h */,
-				18922F5E23A8CB43007EE084 /* BaseTabBarViewController.m */,
+				18922F5D23A8CB43007EE084 /* FTBaseTabBarViewController.h */,
+				18922F5E23A8CB43007EE084 /* FTBaseTabBarViewController.m */,
 				18922EBE23A86956007EE084 /* Main.storyboard */,
 				18922EC123A86958007EE084 /* Assets.xcassets */,
 				18922EC323A86958007EE084 /* LaunchScreen.storyboard */,
@@ -414,11 +414,11 @@
 				18922EBD23A86956007EE084 /* ViewController.m in Sources */,
 				18922F7723AA0D85007EE084 /* FTTabBarItem.m in Sources */,
 				18922F6523A8CB80007EE084 /* BViewController.m in Sources */,
+				B5DF81112560FF9800A4248A /* FTBaseTabBarViewController.m in Sources */,
 				18922F6223A8CB76007EE084 /* AViewController.m in Sources */,
 				18922F7A23AA17D3007EE084 /* FTTabBar.m in Sources */,
 				18922EB723A86956007EE084 /* AppDelegate.m in Sources */,
 				18922EC823A86958007EE084 /* main.m in Sources */,
-				18922F5F23A8CB43007EE084 /* BaseTabBarViewController.m in Sources */,
 				18922F6823A8CB8A007EE084 /* CViewController.m in Sources */,
 				18922F6B23A8CB93007EE084 /* DViewController.m in Sources */,
 			);
@@ -597,7 +597,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = LM.CustomTabBar;
+				PRODUCT_BUNDLE_IDENTIFIER = FTBlurTabBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -615,7 +615,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = LM.CustomTabBar;
+				PRODUCT_BUNDLE_IDENTIFIER = FTBlurTabBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

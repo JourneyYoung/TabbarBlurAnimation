@@ -1,5 +1,5 @@
 //
-//  BaseTabBarViewController.h
+//  FTBaseTabBarViewController.h
 //  CustomTabBar
 //
 //  Created by Journey on 2020/11/15.
@@ -10,7 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseTabBarViewController : UITabBarController
+@interface FTBaseTabBarViewController : UITabBarController
+
+- (void)showRedDot:(BOOL)isShow;
 
 @end
 

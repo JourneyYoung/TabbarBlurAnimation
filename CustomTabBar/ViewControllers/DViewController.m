@@ -7,6 +7,7 @@
 //
 
 #import "DViewController.h"
+#import "FTBaseTabBarViewController.h"
 
 @interface DViewController ()
 
@@ -17,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    FTBaseTabBarViewController *tabbar = (FTBaseTabBarViewController *)self.navigationController.tabBarController;
+//    [tabbar showRedDot:YES];
     // Do any additional setup after loading the view.
 }
 

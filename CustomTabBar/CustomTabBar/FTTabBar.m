@@ -1,6 +1,6 @@
 //
-//  LMTabBar.m
-//  CustomTabBar
+//  FTTabBar.m
+//  FTCustomTabBar
 //
 //  Created by Journey on 2020/11/15.
 //  Copyright © 2020 Journey. All rights reserved.

@@ -1,6 +1,6 @@
 //
-//  LMTabBarItem.m
-//  CustomTabBar
+//  FTTabBarItem.m
+//  FTCustomTabBar
 //
 //  Created by Journey on 2020/11/15.
 //  Copyright © 2020 Journey. All rights reserved.
@@ -9,6 +9,7 @@
 #import "FTTabBarItem.h"
 #import <YYImage/YYImage.h>
 #import <Masonry.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 static NSInteger defaultTag = 100000;
 
@@ -38,6 +39,7 @@ static NSInteger defaultTag = 100000;
 
 @property (nonatomic, strong) NSString *titleName;
 
+@property (nonatomic, strong) UIView *redRotView;
 
 @end
 
@@ -98,6 +100,18 @@ static NSInteger defaultTag = 100000;
     UIImage *normalImage = [UIImage imageNamed:self.normalImageName];
 
     self.normalImageView.image = [normalImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    [self addSubview:self.redRotView];
+    [self.redRotView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.animationView.mas_right);
+        make.top.equalTo(self.animationView);
+        make.width.height.equalTo(@8);
+    }];
+    self.redRotView.hidden = YES;
+}
+
+- (void)shouldShowRedRot:(BOOL)isShow{
+    self.redRotView.hidden = !isShow;
 }
 
 // 重写setTag方法
@@ -107,6 +121,13 @@ static NSInteger defaultTag = 100000;
 
 - (void)setSelected:(BOOL)animated{
     self.isSelected = YES;
+    [self.redRotView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.animationView.mas_right);
+        make.top.equalTo(self.animationView);
+        make.width.height.equalTo(@8);
+    }];
+    //3DTouch
+    AudioServicesPlaySystemSound(1519);
     //未选中图片淡出，
     [UIView animateWithDuration:0.1 animations:^{
         self.normalImageView.alpha = 0.0;
@@ -155,6 +176,11 @@ static NSInteger defaultTag = 100000;
 
 - (void)setUnSelected:(BOOL)animated{
     self.isSelected = NO;
+    [self.redRotView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.normalImageView.mas_right);
+        make.top.equalTo(self.normalImageView);
+        make.width.height.equalTo(@8);
+    }];
     //未选中图片淡入
     [UIView animateWithDuration:0.1 animations:^{
         self.normalImageView.alpha = 1.0;
@@ -349,6 +375,16 @@ static NSInteger defaultTag = 100000;
         _normalImageView.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _normalImageView;
+}
+
+- (UIView *)redRotView{
+    if(!_redRotView){
+        _redRotView = [[UIView alloc]init];
+        _redRotView.backgroundColor = [UIColor colorWithRed:255/255 green:52.0/255.0 blue:69.0/255.0 alpha:1];
+        _redRotView.layer.cornerRadius = 4;
+        _redRotView.layer.masksToBounds = YES;
+    }
+    return _redRotView;
 }
 
 @end

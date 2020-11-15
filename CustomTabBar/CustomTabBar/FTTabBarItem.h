@@ -1,6 +1,6 @@
 //
-//  LMTabBarItem.h
-//  CustomTabBar
+//  FTTabBarItem.h
+//  FTCustomTabBar
 //
 //  Created by Journey on 2020/11/15.
 //  Copyright © 2020 Journey. All rights reserved.
@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setSelected:(BOOL)animated;
 
 - (void)setUnSelected:(BOOL)animated;
+
+- (void)shouldShowRedRot:(BOOL)isShow;
 
 @end
 
