@@ -106,7 +106,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 - (void)setLastSelectedIndex:(NSInteger)lastSelectedIndex {
     _lastSelectedIndex = lastSelectedIndex;
     LMTabBarItem *item = self.customTabBar.lmItems[lastSelectedIndex];
-    [item setUnSelected];
+    [item setUnSelected:YES];
     for (UIView *view in item.subviews) {
         if ([view isKindOfClass:NSClassFromString(@"YYAnimatedImageView")]) {//取YYAnimatedImageView
             YYAnimatedImageView *animationView = (YYAnimatedImageView *)view;
@@ -119,7 +119,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 - (void)setCurrentSelectedIndex:(NSInteger)currentSelectedIndex {
     _currentSelectedIndex = currentSelectedIndex;
     LMTabBarItem *item = self.customTabBar.lmItems[currentSelectedIndex];
-    [item setSelected];
+    [item setSelected:YES];
     for (UIView *view in item.subviews) {
         if ([view isKindOfClass:NSClassFromString(@"YYAnimatedImageView")]) {//取YYAnimatedImageView
             YYAnimatedImageView *animationView = (YYAnimatedImageView *)view;

@@ -21,9 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 //重写初始化方法
 - (instancetype)initWithPngName:(NSString *)name;
 
-- (void)setSelected;
+- (void)setSelected:(BOOL)animated;
 
-- (void)setUnSelected;
+- (void)setUnSelected:(BOOL)animated;
 
 @end
 

@@ -23,6 +23,21 @@ static NSInteger defaultTag = 100000;
 
 @property (nonatomic, strong) UILabel *titleLabel;
 
+@property (nonatomic, assign) NSInteger radian;
+
+@property (nonatomic, assign) NSInteger minusRadian;
+
+@property (nonatomic, strong) NSTimer *selectedTimer;
+
+@property (nonatomic, strong) NSTimer *unSelectedTimer;
+
+@property (nonatomic, strong) NSString *animateName;
+
+@property (nonatomic, strong) NSString *normalImageName;
+
+@property (nonatomic, strong) NSString *titleName;
+
+
 @end
 
 @implementation LMTabBarItem
@@ -30,22 +45,8 @@ static NSInteger defaultTag = 100000;
 //重写初始化方法
 - (instancetype)initWithPngName:(NSString *)name{
     if (self = [super init]) {
-        
-        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-        self.backView = [[UIVisualEffectView alloc] initWithEffect:effect];
-        [self addSubview:self.backView];
-        
-        
-        YYImage *image = [YYImage imageNamed:name];
-        self.animationView = [[YYAnimatedImageView alloc] initWithImage:image];
-        [self.animationView startAnimating];
-        self.animationView.currentAnimatedImageIndex = 0;
-        self.animationView.userInteractionEnabled = NO;
-        self.animationView.contentMode = UIViewContentModeScaleAspectFit;
-        [self addSubview:self.animationView];
-        self.userInteractionEnabled = YES;
-        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapItem:)];
-        [self addGestureRecognizer:gesture];
+        self.animateName = name;
+        [self configUI];
     }
     return self;
 }
@@ -60,23 +61,95 @@ static NSInteger defaultTag = 100000;
 
 #pragma mark ----set
 
+- (void)configUI{
+    UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    self.backView = [[UIVisualEffectView alloc] initWithEffect:effect];
+    [self addSubview:self.backView];
+    
+    YYImage *image = [YYImage imageNamed:self.animateName];
+    self.animationView = [[YYAnimatedImageView alloc] initWithImage:image];
+    [self.animationView startAnimating];
+    self.animationView.currentAnimatedImageIndex = 0;
+    self.animationView.userInteractionEnabled = NO;
+    self.animationView.contentMode = UIViewContentModeScaleAspectFit;
+    [self addSubview:self.animationView];
+    self.userInteractionEnabled = YES;
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapItem:)];
+    [self addGestureRecognizer:gesture];
+    
+    
+}
+
 // 重写setTag方法
 - (void)setTag:(NSInteger)tag {
     [super setTag:tag + defaultTag];
 }
 
-- (void)setSelected{
+- (void)setSelected:(BOOL)animated{
     self.isSelected = YES;
+    if(self.selectedTimer){
+        [self.selectedTimer invalidate];
+        self.selectedTimer = nil;
+    }
+    if(self.unSelectedTimer){
+        [self.unSelectedTimer invalidate];
+        self.unSelectedTimer = nil;
+    }
+    if(!animated){
+        self.minusRadian = 6;
+        self.radian = 6;
+        [self drawCircle];
+    }else{
+        self.radian = 6;
+        self.minusRadian = 6;
+        self.selectedTimer = [NSTimer timerWithTimeInterval:0.025 target:self selector:@selector(moveToSelected) userInfo:nil repeats:YES];
+
+        [[NSRunLoop mainRunLoop] addTimer:self.selectedTimer forMode:NSDefaultRunLoopMode];
+    }
+}
+
+- (void)setUnSelected:(BOOL)animated{
+    self.isSelected = NO;
+    if(self.selectedTimer){
+        [self.selectedTimer invalidate];
+        self.selectedTimer = nil;
+    }
+    if(self.unSelectedTimer){
+        [self.unSelectedTimer invalidate];
+        self.unSelectedTimer = nil;
+    }
+    if(!animated){
+        self.minusRadian = 6;
+        self.radian = 6;
+        [self clearCircle];
+    }else{
+        self.radian = 6;
+        self.minusRadian = 6;
+        self.unSelectedTimer = [NSTimer timerWithTimeInterval:0.025 target:self selector:@selector(moveToUnSelected) userInfo:nil repeats:YES];
+
+        [[NSRunLoop mainRunLoop] addTimer:self.unSelectedTimer forMode:NSDefaultRunLoopMode];
+    }
+}
+
+- (void)moveToUnSelected{
     CGFloat width = self.frame.size.width;
     CGFloat height = self.frame.size.height;
     
-    CGFloat kRadian = 6;
+    self.minusRadian -= 0.25;
+    
+    if(self.minusRadian <= 0){
+        [self.unSelectedTimer invalidate];
+        self.unSelectedTimer = nil;
+        self.radian = 6;
+        [self clearCircle];
+        return;
+    }
     UIBezierPath *bezierPath = [UIBezierPath bezierPath];
     
-    [bezierPath moveToPoint: CGPointMake(width*0.5-16, kRadian)];
+    [bezierPath moveToPoint: CGPointMake(width*0.5-16, self.radian)];
     
-    [bezierPath addQuadCurveToPoint:CGPointMake(width*0.5+16, kRadian) controlPoint:CGPointMake(width*0.5, -kRadian)];
-    [bezierPath addLineToPoint:CGPointMake(width, kRadian)];
+    [bezierPath addQuadCurveToPoint:CGPointMake(width*0.5+16, self.radian) controlPoint:CGPointMake(width*0.5, -self.minusRadian)];
+    [bezierPath addLineToPoint:CGPointMake(width, self.radian)];
     if(self.tag == 100003){
         CGFloat startAngle = M_PI*1.5; //
         CGFloat endAngle = 0 ;
@@ -84,7 +157,7 @@ static NSInteger defaultTag = 100000;
     }
     [bezierPath addLineToPoint: CGPointMake(width, height+60)];
     [bezierPath addLineToPoint: CGPointMake(0, height+60)];
-    [bezierPath addLineToPoint: CGPointMake(0, kRadian)];
+    [bezierPath addLineToPoint: CGPointMake(0, self.radian)];
     if(self.tag == 100000){
         CGFloat startAngle = M_PI; //
         CGFloat endAngle = M_PI*1.5 ;
@@ -96,15 +169,12 @@ static NSInteger defaultTag = 100000;
     [self.backView.layer setMask:layer];
 }
 
-- (void)setUnSelected{
-    self.isSelected = NO;
+- (void)clearCircle{
     CGFloat width = self.frame.size.width;
     CGFloat height = self.frame.size.height;
     UIBezierPath *bezierPath = [UIBezierPath bezierPath];
     
-    CGFloat kRadian = 6;
-    
-    [bezierPath moveToPoint: CGPointMake(width, kRadian)];
+    [bezierPath moveToPoint: CGPointMake(width, self.radian)];
     if(self.tag == 100003){
         CGFloat startAngle = M_PI*1.5; //
         CGFloat endAngle = 0 ;
@@ -114,21 +184,80 @@ static NSInteger defaultTag = 100000;
     [bezierPath addLineToPoint:CGPointMake(width, height+60)];
     
     [bezierPath addLineToPoint: CGPointMake(0, height+60)];
-    [bezierPath addLineToPoint: CGPointMake(0, kRadian)];
+    [bezierPath addLineToPoint: CGPointMake(0, self.radian)];
+    if(self.tag == 100000){
+        CGFloat startAngle = M_PI; //
+        CGFloat endAngle = M_PI*1.5 ;
+        [bezierPath addArcWithCenter:CGPointMake(20, 26) radius:20 startAngle:startAngle endAngle:endAngle clockwise:YES];
+    }
+    CAShapeLayer *layer = [CAShapeLayer layer];
+    layer.path = bezierPath.CGPath;
+    [self.backView.layer setMask:layer];
+}
+
+- (void)moveToSelected{
+    CGFloat width = self.frame.size.width;
+    CGFloat height = self.frame.size.height;
+    
+    self.minusRadian += 0.25;
+    if(self.minusRadian >= 6){
+        [self.selectedTimer invalidate];
+        self.selectedTimer = nil;
+        self.radian = 6;
+        [self drawCircle];
+        return;
+    }
+    UIBezierPath *bezierPath = [UIBezierPath bezierPath];
+    
+    [bezierPath moveToPoint: CGPointMake(width*0.5-16, self.radian)];
+    
+    [bezierPath addQuadCurveToPoint:CGPointMake(width*0.5+16, self.radian) controlPoint:CGPointMake(width*0.5, -self.minusRadian)];
+    [bezierPath addLineToPoint:CGPointMake(width, self.radian)];
+    if(self.tag == 100003){
+        CGFloat startAngle = M_PI*1.5; //
+        CGFloat endAngle = 0 ;
+        [bezierPath addArcWithCenter:CGPointMake(width-20, 26) radius:20 startAngle:startAngle endAngle:endAngle clockwise:YES];
+    }
+    [bezierPath addLineToPoint: CGPointMake(width, height+60)];
+    [bezierPath addLineToPoint: CGPointMake(0, height+60)];
+    [bezierPath addLineToPoint: CGPointMake(0, self.radian)];
     if(self.tag == 100000){
         CGFloat startAngle = M_PI; //
         CGFloat endAngle = M_PI*1.5 ;
         [bezierPath addArcWithCenter:CGPointMake(20, 26) radius:20 startAngle:startAngle endAngle:endAngle clockwise:YES];
     }
     
-    CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
-    pathAnimation.removedOnCompletion = NO;
-    pathAnimation.toValue = (id)bezierPath.CGPath;
-    pathAnimation.duration = 1.0;
     CAShapeLayer *layer = [CAShapeLayer layer];
-    layer.path = bezierPath.CGPath;
-//    [layer addAnimation:pathAnimation forKey:@"revealAnimation"];
-//    [self.backView.layer addAnimation:pathAnimation forKey:@"path"];
+        layer.path = bezierPath.CGPath;
+    [self.backView.layer setMask:layer];
+}
+
+- (void)drawCircle{
+    CGFloat width = self.frame.size.width;
+    CGFloat height = self.frame.size.height;
+    
+    UIBezierPath *bezierPath = [UIBezierPath bezierPath];
+    
+    [bezierPath moveToPoint: CGPointMake(width*0.5-16, self.radian)];
+    
+    [bezierPath addQuadCurveToPoint:CGPointMake(width*0.5+16, self.radian) controlPoint:CGPointMake(width*0.5, -self.radian)];
+    [bezierPath addLineToPoint:CGPointMake(width, self.radian)];
+    if(self.tag == 100003){
+        CGFloat startAngle = M_PI*1.5; //
+        CGFloat endAngle = 0 ;
+        [bezierPath addArcWithCenter:CGPointMake(width-20, 26) radius:20 startAngle:startAngle endAngle:endAngle clockwise:YES];
+    }
+    [bezierPath addLineToPoint: CGPointMake(width, height+60)];
+    [bezierPath addLineToPoint: CGPointMake(0, height+60)];
+    [bezierPath addLineToPoint: CGPointMake(0, self.radian)];
+    if(self.tag == 100000){
+        CGFloat startAngle = M_PI; //
+        CGFloat endAngle = M_PI*1.5 ;
+        [bezierPath addArcWithCenter:CGPointMake(20, 26) radius:20 startAngle:startAngle endAngle:endAngle clockwise:YES];
+    }
+    
+    CAShapeLayer *layer = [CAShapeLayer layer];
+        layer.path = bezierPath.CGPath;
     [self.backView.layer setMask:layer];
 }
 
@@ -146,9 +275,9 @@ static NSInteger defaultTag = 100000;
     self.animationView.frame = CGRectMake(0, 0, 32, 32);
     self.animationView.center = CGPointMake(rect.size.width*0.5, 16);
     if(self.isSelected){
-        [self setSelected];
+        [self setSelected:NO];
     }else{
-        [self setUnSelected];
+        [self setUnSelected:NO];
     }
 }
 
